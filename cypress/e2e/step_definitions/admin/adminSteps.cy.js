@@ -1,6 +1,5 @@
-import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+import { When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import AdminPage from "../../../pageObjects/AdminPage";
-
 
 When("navega a la sección de administración", () => {
   AdminPage.navigate();

@@ -11,8 +11,16 @@ class BasePage {
     cy.get(selector).clear().type(text);
   }
 
+  selectDropdown(selector, option) {
+    cy.get(selector).select(option);
+  }
+
   verifyText(selector, expectedText) {
     cy.get(selector).should("contain.text", expectedText);
+  }
+
+  verifyUrl(expectedUrlPart) {
+    cy.url().should("include", expectedUrlPart);
   }
 }
 

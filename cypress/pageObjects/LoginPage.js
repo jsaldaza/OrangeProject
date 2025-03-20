@@ -1,35 +1,22 @@
-class LoginPage {
+import BasePage from "../common/BasePage";
+
+class LoginPage extends BasePage {
   constructor() {
-    // Selectores
+    super();
     this.usernameInput = "input[name='username']";
     this.passwordInput = "input[name='password']";
     this.loginButton = "button[type='submit']";
-    this.errorMessage = ".oxd-alert-content > .oxd-text";
-  }
-
-  visit() {
-    cy.visit("/web/index.php/auth/login");
+    this.errorMessage = ".oxd-alert-content-text";
   }
 
   login(username, password) {
-    cy.get(this.usernameInput).clear().type(username);
-    cy.get(this.passwordInput).clear().type(password);
-    cy.get(this.loginButton).click();
+    this.typeText(this.usernameInput, username);
+    this.typeText(this.passwordInput, password);
+    this.clickElement(this.loginButton);
   }
 
-clickLogin() {
-  cy.url().then((url) => {
-    if (!url.includes("/dashboard")) {
-      cy.get(this.loginButton).click();
-    } else {
-      cy.log("El usuario ya está en el Dashboard, no se necesita hacer login nuevamente.");
-    }
-  });
-}
-
-
   verifyErrorMessage(message) {
-    cy.get(this.errorMessage).should("contain.text", message);
+    this.verifyText(this.errorMessage, message);
   }
 }
 
