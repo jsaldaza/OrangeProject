@@ -1,0 +1,29 @@
+{
+  "name": "cucumber",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "npx cypress open",
+    "cypress:run": "npx cypress run",
+    "test": "node cypress/utils/TestRunner.js",
+    "test:smoke": "node cypress/utils/TestRunner.js @smoke",
+    "test:positive": "node cypress/utils/TestRunner.js @positive",
+    "test:negative": "node cypress/utils/TestRunner.js @negative",
+    "test:regression": "node cypress/utils/TestRunner.js @regression",
+    "test:all": "node cypress/utils/TestRunner.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
+    "cypress": "^14.2.0",
+    "esbuild": "^0.25.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": "cypress/e2e/step_definitions/**/*.cy.js"
+  }
+}
