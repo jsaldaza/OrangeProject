@@ -18,5 +18,5 @@ After(() => {
     if (url.includes("/dashboard")) {
       UserMenu.logout();
     }
-  });
+  }); 
 });

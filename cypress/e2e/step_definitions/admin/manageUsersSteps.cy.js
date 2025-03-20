@@ -16,4 +16,4 @@ When("elimina el usuario {string}", (username) => {
 
 Then("el usuario ya no debería aparecer en la lista", () => {
   AdminPage.verifyUserDeleted();
-});
+}); 

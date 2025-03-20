@@ -13,3 +13,4 @@ When("asigna el rol {string} al usuario {string}", (role, user) => {
 Then("el usuario debería tener el rol actualizado", () => {
   AdminPage.verifyRoleAssigned();
 });
+ 
